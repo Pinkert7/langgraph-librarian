@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langgraph-librarian"
+version = "0.1.0"
+description = "Intelligent context management for LangGraph chatbots using the Librarian select-then-hydrate architecture"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Amir Pinkert"},
+]
+keywords = ["langgraph", "langchain", "context-management", "llm", "chatbot", "rag"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "langgraph>=0.2",
+    "langchain-core>=0.3",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+serve = [
+    "langserve>=0.0.30",
+]
+
+[project.urls]
+Homepage = "https://github.com/Pinkert7/langgraph-librarian"
+Repository = "https://github.com/Pinkert7/langgraph-librarian"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/langgraph_librarian"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
